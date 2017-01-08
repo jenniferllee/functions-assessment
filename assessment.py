@@ -159,8 +159,14 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    pass
+    # DOES NOT WORK: methods that mutate sequences return None
+    # new_list = lst
+    # new_list = new_list.append(num)
+    # return new_list
 
+    # THIS WORKS:
+    new_list = lst + [num]
+    return new_list
 
 
 # 3. Write a function calculate_price to calculate an item's total cost by
@@ -179,9 +185,29 @@ def append_to_list(lst, num):
 #    Your function should return the total cost of the item, including tax and
 #    fees.
 
-def calculate_price(FILL_ME_IN):
+def calculate_price(base_price, state, tax=0.05):
 
-    pass
+    if state == "CA":
+        tax = base_price * tax
+        cost_with_tax = base_price + tax
+        recycling_fee = base_price * 0.03
+        total_cost = cost_with_tax + recycling_fee
+    elif state == "PA":
+        tax = base_price * tax
+        cost_with_tax = base_price + tax
+        total_cost = cost_with_tax + 2
+    elif state == "MA":
+        tax = base_price * tax
+        cost_with_tax = base_price + tax
+        if base_price < 100:
+            total_cost = cost_with_tax + 1
+        else:
+            total_cost = cost_with_tax + 3
+    else:
+        tax = base_price * tax
+        total_cost = base_price + tax
+
+    return total_cost
 
 
 ###############################################################################
@@ -197,6 +223,23 @@ def calculate_price(FILL_ME_IN):
 # arguments, appends them to the list, and returns the entire list. Hint: this
 # isn't something we've discussed yet in class; you might need to google how to
 # write a Python function that takes in an arbitrary number of arguments.
+
+def create_list(lst, *arg):
+    """ Takes in a list and any number of additional arguments, appends
+    them to the list, and returns the entire list.
+
+    >>> create_list([1, 2, 3], 4, 5, 6)
+    [1, 2, 3, 4, 5, 6]
+
+    """
+
+    # Convert tuple to a list (arg returns items in a tuple)
+    items_to_append = list(arg)
+
+    # Concatenate additional items to original list.
+    new_list = lst + items_to_append
+
+    return new_list
 
 
 # 2. Make a new function with a nested inner function.
