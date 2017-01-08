@@ -61,7 +61,9 @@ included in the doctest.
 
 def check_hometown(town_name):
     """Takes a town name as a string and returns 'True' if
-    it is your hometown, and 'False' otherwise
+    it is your hometown and 'False' otherwise
+
+    For example:
 
     >>> check_hometown("Palo Alto")
     True
@@ -83,8 +85,10 @@ def check_hometown(town_name):
 
 
 def full_name(first_name, last_name):
-    """ Takes a first and last name and returns the concatenation
+    """ Takes a first and last name as arguments and returns the concatenation
     of the two names in one string.
+
+    For example:
 
     >>> full_name('Jennifer', 'Lee')
     'Jennifer Lee'
@@ -102,8 +106,10 @@ def full_name(first_name, last_name):
 
 
 def greeting(home_town, first_name, last_name):
-    """ Takes a home town, a first name, and a last name as arguments and
-    prints two different greetings depending on home town.
+    """ Takes a home town, first name, and last name as arguments and prints
+    two different greetings depending on whether home town is the same.
+
+    For example:
 
     >>> greeting('Palo Alto', 'Jennifer', 'Lee')
     Hi, Jennifer Lee, we're from the same place!
@@ -159,9 +165,8 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    # DOES NOT WORK: methods that mutate sequences return None
-    # new_list = lst
-    # new_list = new_list.append(num)
+    # THIS DOES NOT WORK (methods that mutate sequences return None):
+    # new_list = lst.append(num)
     # return new_list
 
     # THIS WORKS:
@@ -233,10 +238,10 @@ def create_list(lst, *arg):
 
     """
 
-    # Convert tuple to a list (arg returns items in a tuple)
+    # Convert tuple to a list (arg returns additional argument(s) in a tuple).
     items_to_append = list(arg)
 
-    # Concatenate additional items to original list.
+    # Concatenate additional arguments to original list.
     new_list = lst + items_to_append
 
     return new_list
