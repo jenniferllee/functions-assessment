@@ -59,8 +59,40 @@ included in the doctest.
 #    (a) Write a function that takes a town name as a string and evaluates to
 #        `True` if it is your hometown, and `False` otherwise.
 
+def check_hometown(town_name):
+    """Takes a town name as a string and returns 'True' if
+    it is your hometown, and 'False' otherwise
+
+    >>> check_hometown("Palo Alto")
+    True
+
+    >>> check_hometown("San Francisco")
+    False
+
+    """
+
+    my_hometown = "Palo Alto"
+
+    if town_name == my_hometown:
+        return True
+    else:
+        return False
+
 #    (b) Write a function that takes a first and last name as arguments and
 #        returns the concatenation of the two names in one string.
+
+
+def full_name(first_name, last_name):
+    """ Takes a first and last name and returns the concatenation
+    of the two names in one string.
+
+    >>> full_name('Jennifer', 'Lee')
+    'Jennifer Lee'
+
+    """
+
+    return "%s %s" % (first_name, last_name)
+
 
 #    (c) Write a function that takes a home town, a first name, and a last name
 #        as arguments, calls both functions from part (a) and (b) and prints
@@ -68,6 +100,23 @@ included in the doctest.
 #        here', where are you from?" depending on what the function from part
 #        (a) evaluates to.
 
+
+def greeting(home_town, first_name, last_name):
+    """ Takes a home town, a first name, and a last name as arguments and
+    prints two different greetings depending on home town.
+
+    >>> greeting('Palo Alto', 'Jennifer', 'Lee')
+    Hi, Jennifer Lee, we're from the same place!
+
+    >>> greeting('San Francisco', 'Jennifer', 'Lee')
+    Hi Jennifer Lee, where are you from?
+
+    """
+
+    if check_hometown(home_town) is True:
+        print "Hi, %s, we're from the same place!" % (full_name(first_name, last_name))
+    else:
+        print "Hi %s, where are you from?" % (full_name(first_name, last_name))
 
 
 ###############################################################################
