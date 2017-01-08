@@ -91,7 +91,7 @@ def full_name(first_name, last_name):
 
     """
 
-    return "%s %s" % (first_name, last_name)
+    return '%s %s' % (first_name, last_name)
 
 
 #    (c) Write a function that takes a home town, a first name, and a last name
@@ -131,7 +131,10 @@ def greeting(home_town, first_name, last_name):
 def is_berry(fruit):
     """Determines if fruit is a berry"""
 
-    pass
+    if fruit == "strawberry" or fruit == "cherry" or fruit == "blackberry":
+        return True
+    else:
+        return False
 
 
 # (b) Write another function, shipping_cost(), which calculates shipping cost
@@ -142,7 +145,10 @@ def is_berry(fruit):
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
 
-    pass
+    if is_berry(fruit) is True:
+        return 0
+    else:
+        return 5
 
 
 # 2. Make a function that takes in a number and a list of numbers. It should
