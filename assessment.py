@@ -214,6 +214,9 @@ def calculate_price(base_price, state, tax=0.05):
 
     return total_cost
 
+# For CA, I orginally had recycling_fee = cost_with_tax * 0.03 (since fee
+# is calculated after tax), but based on doctest, it seems like output should
+# have the fee calculated before tax.
 
 ###############################################################################
 
