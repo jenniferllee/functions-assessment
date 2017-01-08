@@ -255,6 +255,20 @@ def create_list(lst, *arg):
 #('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
 
 
+def outer(word):
+    """ Takes in a word, calls an inner function that multiplies word by 3,
+    returns a tuple with the original function argument and the result of
+    the inner function.
+
+    >>> outer("Balloonicorn")
+    ('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
+
+    """
+
+    def inner(word):
+        return word * 3
+    return word, inner(word)
+
 ###############################################################################
 
 # END OF ASSESSMENT: You can ignore everything below.
